@@ -8,6 +8,8 @@
 	density = 1
 	blocks_air = 1
 	var/walltype = "metal"
+	var/icon_base = ""
+	var/icon_base_reinf = ""
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 312500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m plasteel wall
 	can_smooth = TRUE
@@ -22,6 +24,7 @@
 	var/construction_stage
 	var/hitsound = 'sound/weapons/Genhit.ogg'
 	var/floor_type = /turf/simulated/floor/plating //turf it leaves after destruction
+	var/list/wall_connections = list("0", "0", "0", "0")
 
 
 /turf/simulated/wall/New(var/newloc)

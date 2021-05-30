@@ -39,4 +39,31 @@
 				junction |= get_dir(src,W)
 	//var/turf/simulated/wall/wall = src
 	icon_state = "[walltype][junction]"
-	return
+	update_connections(1)
+	update_icon()
+
+	if(icon_base)
+		cut_overlays()
+		var/image/I
+		for(var/i = 1 to 4)
+			I = image('icons/turf/wall_masks.dmi', "[icon_base][wall_connections[i]]", dir = GLOB.cardinal[i])
+			add_overlay(I)
+
+	else return
+
+/turf/simulated/wall/proc/update_connections(propagate = 0)
+	var/list/dirs = list()
+	for(var/turf/simulated/wall/W in RANGE_TURFS(1, src) - src)
+		if(propagate)
+			W.update_connections()
+			W.update_icon()
+		if(can_join_with(W))
+			dirs += get_dir(src, W)
+
+	wall_connections = dirs_to_corner_states(dirs)
+
+/turf/simulated/wall/proc/can_join_with(var/turf/simulated/wall/W)
+	if(src.icon_base == W.icon_base)
+		return 1
+	return 0
+

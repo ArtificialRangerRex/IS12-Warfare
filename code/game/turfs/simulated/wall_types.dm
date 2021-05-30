@@ -17,6 +17,24 @@
 	plane = ABOVE_HUMAN_PLANE
 	integrity = 500 //Tough bois
 
+/turf/simulated/wall/concrete_new
+	name = "concrete wall"
+	desc = "An old concrete wall. For when metal just isn't good enough."
+	icon_state = "concrete"
+	icon_base = "concrete"
+	walltype = "concrete"
+	mineral = "rust"
+	plane = ABOVE_HUMAN_PLANE
+
+/turf/simulated/wall/brick
+	name = "concrete wall"
+	desc = "An old concrete wall. For when metal just isn't good enough."
+	icon_state = "brick"
+	icon_base = "brick"
+	walltype = "concrete"
+	mineral = "rust"
+	plane = ABOVE_HUMAN_PLANE
+
 /turf/simulated/wall/concrete/strong
 	desc = "Looks much stronger than a paper sheet."
 	integrity = 7500
